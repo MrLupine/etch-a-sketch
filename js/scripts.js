@@ -11,4 +11,4 @@ function gridCreation(gridSize) {
 	}
 }
 
-gridCreation(200)
+gridCreation(50)
