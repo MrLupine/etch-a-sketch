@@ -15,6 +15,18 @@ body {
 }
 
 .GridRow {
+	display: flex;
 	flex: 1;
+	justify-content: space-between;
+	margin: 0;
+}
+
+.GridCell {
+	margin: 0;
+	width: 100%;
 	background-color: green;
+}
+
+.GridCellToggle {
+
 }
