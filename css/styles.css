@@ -1,0 +1,20 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+#SketchBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 85vw;
+	height: 85vw;
+}
+
+.GridRow {
+	flex: 1;
+	background-color: green;
+}
