@@ -1,17 +1,147 @@
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+* {
 	margin: 0;
+	padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 25px;
+    height: 25px;
+    float: right;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+#body {
+	background-color: white;
+	color: black;
+}
+
+#MainSection {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 8fr 1fr;
+	max-height: 100vh;
+	background-color: inherit;
+}
+
+#header {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+	display: grid;
+	grid-template-columns: 6fr 3fr 1fr;
+	grid-template-rows: 1fr 2fr 1fr;
+	width: 85vw;
+	height: 10vh;
+	max-width: 82vh;
+}
+
+#title  {
+	display: grid;
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 36px;
+	align-content: center;
+	justify-content: start;
+	padding-top: 4px;
+	letter-spacing: 2px;
+	color: inherit;
+}
+
+#ClearBoxContainer {
+	display: grid;
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	align-items: center;
+	justify-items: end;
+}
+
+#ClearBox {
+	width: 80px;
+	height: 25px;
+	background-image: linear-gradient(#D8D8D8, #CCCCCC);
+	outline: 1px solid transparent;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	color: #414141;
+	padding-right: 2px;
+	border-radius: 3px;
+}
+
+#SettingsGridSquare {
+	display: grid;
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+	align-items: center;
+	justify-items: end;
+}
+
+#Switch {
+	position: relative;
+	display: inline-block;
+	height: 22px;
+	width: 22px;
+}
+
+#SettingsToggleButton, #HideGridInput, #NightModeInput, #MulticolouredInput {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+#SettingsIcon {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 22px;
+	width: 22px;
+	fill: #B3B3B3;
+	transition: transform 1s;
+}
+
+#Grid {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 #SketchBox {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	grid-column: 2 / 3;
 	width: 85vw;
 	height: 85vw;
+	max-height: 82vh;
+	max-width: 82vh;
+	margin: auto 0;
 }
 
 .GridRow {
@@ -24,13 +154,144 @@ body {
 .GridCell {
 	margin: 0;
 	width: 100%;
-	border: 1px solid #E6E6E6;
 }
 
 .GridCell:hover {
 	background-color: #E6E6E6;
 }
 
-.GridCellToggle {
+#HiddenSettings {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 2fr 4fr 2fr;
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	bottom: -100px;
+	transition: bottom .75s;
+	box-shadow: 0 0 5px 1px #B3B3B3;
+	background-color: inherit;
+}
 
+#CloseSettingsBox {
+	display: grid;
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+	align-items: start;
+	justify-items: start;  
+}
+
+#CrossIconButton {
+	height: 15px;
+	width: 15px;
+	margin: 10px 0 0 10px;
+}
+
+#CrossIcon {
+	height: 15px;
+	width: 15px;
+	fill: #B3B3B3;
+}
+
+#SettingsBox {
+	display: flex;
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	justify-content: space-between;
+	align-items: center;
+	width: 85vw;
+	max-width: 82vh;
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+#GridSizePicker {
+	grid-column: 1 / 2;
+}
+
+#GridSizeInputContainer {
+	height: 17px;
+	width: 40px;
+	border: 1px solid #B3B3B3;
+	border-radius: 3px;
+	overflow: hidden;
+	margin-left: 7px;
+}
+
+#GridSizeInput {
+	outline: none;
+	margin: none;
+	border: none;
+	width: 34px;
+	padding: 1px 3px;
+	border-radius: inherit;
+}
+
+#GridSizeInfo {
+	font-weight: 300;
+	font-size: 11px
+}
+
+#GridOptions {
+	grid-column: 2 / 3;
+	width: 95px;
+}
+
+#GridOptions input {
+	float: right;
+	margin-top: 3px;
+}
+
+#ColourChanger {
+	grid-column: 3 / 4;
+	width: 105px;
+}
+
+#ColourChanger input {
+	float: right;
+	margin-top: 3px;
+}
+
+#ColourChangerInput {
+	position: relative;
+	bottom: 1px;
+	height: 13px;
+	outline: 1px solid transparent;
+	width: 13px;
+}
+
+.Checkbox {
+	position: relative;
+	float: right;
+	top: 2px;
+	right: 13px;
+	outline: 1px solid transparent;
+	cursor: pointer;
+}
+
+.Checkmark {
+	position: absolute;
+	height: 13px;
+	width: 13px;
+	border-radius: 2px;
+	background: #E6E6E6;
+}
+
+.Checkbox:hover input ~ .Checkmark {
+	background: #BFBFBF;
+}
+
+.Checkbox input:checked ~ .Checkmark {
+	background-color: #999999;
+}
+
+.Checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.Checkbox input:checked ~ .Checkmark:after {
+	display: block;
 }
